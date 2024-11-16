@@ -23,6 +23,24 @@ const Todos = ({ todos, setTodos }) => {
     });
     setTodos(_todos);
   };
+
+  const editTodo = (id) => {
+    const currentTodo = todos.find((todo) => todo.id === id);
+    const updatedTodo = prompt("deyisdirin", currentTodo.todo);
+
+    if (updatedTodo) {
+      const _todos = todos.map((todo) => {
+        if (todo.id === id) {
+          todo.todo = updatedTodo;
+        }
+        return todo;
+      });
+      setTodos(_todos);
+      toast.success("ugurla deyisdirildi");
+    } else {
+      toast.error("duzgun melumat daxil edin");
+    }
+  };
   return (
     <div className="todos">
       <table className="table table-light">
@@ -55,7 +73,10 @@ const Todos = ({ todos, setTodos }) => {
                   >
                     <FaTrash />
                   </button>
-                  <button className="btn btn-warning btn-sm text-light ms-2">
+                  <button
+                    className="btn btn-warning btn-sm text-light ms-2"
+                    onClick={() => editTodo(id)}
+                  >
                     <MdEdit />
                   </button>
                 </td>
