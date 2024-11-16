@@ -1,10 +1,24 @@
 import React from "react";
 
-export const Left = () => {
+export const Left = ({ setActivePage, activePage }) => {
+  const buttons = [
+    { id: 0, title: "Todos" },
+    { id: 1, title: "Add Todo" },
+  ];
   return (
     <div className="left bg-success">
-      <button className="btn btn-outline-light">Todos</button>
-      <button className="btn btn-outline-light">Add Todo</button>
+      {buttons.map(({ id, title }) => {
+        return (
+          <button
+            className={
+              id === activePage ? "btn btn-light" : "btn btn-outline-light"
+            }
+            onClick={() => setActivePage(id)}
+          >
+            {title}
+          </button>
+        );
+      })}
     </div>
   );
 };
