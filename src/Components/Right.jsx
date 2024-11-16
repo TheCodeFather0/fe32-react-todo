@@ -6,7 +6,7 @@ const Right = ({ activePage, todos, setTodos }) => {
   return (
     <div className="right">
       {activePage === 0 ? (
-        <Todos todos={todos} />
+        <Todos todos={todos} setTodos={setTodos} />
       ) : (
         <AddTodo setTodos={setTodos} todos={todos} />
       )}
