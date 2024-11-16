@@ -6,7 +6,7 @@ const App = () => {
   const [activePage, setActivePage] = useState(0);
   return (
     <div className="d-flex">
-      <Left />
+      <Left activePage={activePage} setActivePage={setActivePage} />
       <Right activePage={activePage} />
     </div>
   );
