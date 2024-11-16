@@ -10,6 +10,7 @@ export const Left = ({ setActivePage, activePage }) => {
       {buttons.map(({ id, title }) => {
         return (
           <button
+            key={id}
             className={
               id === activePage ? "btn btn-light" : "btn btn-outline-light"
             }

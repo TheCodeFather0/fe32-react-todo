@@ -2,13 +2,7 @@ import React from "react";
 import { FaTrash } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 
-const Todos = () => {
-  const todos = [
-    { id: 0, todo: "Ders oxu", isDone: false },
-    { id: 1, todo: "Ders oxu", isDone: false },
-    { id: 2, todo: "Ders oxu", isDone: false },
-    { id: 3, todo: "Ders oxu", isDone: false },
-  ];
+const Todos = ({ todos }) => {
   return (
     <div className="todos">
       <table className="table table-light">
@@ -22,7 +16,10 @@ const Todos = () => {
         <tbody>
           {todos.map(({ id, todo, isDone }) => {
             return (
-              <tr className={isDone ? "table-success" : "table-danger"}>
+              <tr
+                key={id}
+                className={isDone ? "table-success" : "table-danger"}
+              >
                 <td className="py-3">{todo}</td>
                 <td className="py-3">
                   <input type="checkbox" checked={isDone} />
