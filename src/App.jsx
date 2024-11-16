@@ -1,17 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import { Left } from "./Components/Left";
+import Right from "./Components/Right";
 
 const App = () => {
+  const [activePage, setActivePage] = useState(0);
   return (
     <div className="d-flex">
-      <div className="left bg-success">
-        <button className="btn btn-outline-light">Todos</button>
-        <button className="btn btn-outline-light">Add Todo</button>
-      </div>
-      <div className="right">
-        <div className="addTodo">addTodo</div>
-
-        <div className="todos">todos</div>
-      </div>
+      <Left />
+      <Right activePage={activePage} />
     </div>
   );
 };
